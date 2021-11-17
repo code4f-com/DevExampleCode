@@ -1,0 +1,35 @@
+Outstanding Tasks:
+
+1. The buffer size in the HttpServletRequest.wrap() method is hard coded to 
+   33049 bytes. This might not be enough. Need to test with a large dataset.
+   We may need to incrementally increase the buffersize if we hit a buffer
+   overflow.
+
+2. Need to set up a timer task to periodically clean up HttpSessions.
+
+3. Confirm implementation/scope of cookies:
+   http://en.wikipedia.org/wiki/HTTP_cookie
+
+4. Check all public implementations of the java.io.InputStream. If a read()
+   returns a -1 all subsequent read() requests should return -1.
+
+5. Need to implement the following methods in HttpServletRequest:
+   - getCharacterEncoding() <--test it!!
+   - getRequestURL() <-- test it!!!
+   - getRequestDispatcher()
+   - isUserInRole()
+
+6. Need to implement the following methods in HttpServletResponse:
+   - addHeader()
+   - setLocale() - Simply sets the class variable which isn't used for anything.
+   - encodeURL() - Implement session management via URLs
+
+
+
+Enhancements:
+
+1. Implement handler for TE Header
+   http://lists.w3.org/Archives/Public/ietf-http-wg/2002JulSep/0019.html
+
+2. Implement mechanism to block DoS attacks
+
